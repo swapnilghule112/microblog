@@ -1,8 +1,6 @@
-FLASK_APP = microblog.py
-FLASK_DEBUG = 0
-
-MAIL_SERVER=smtp.googlemail.com
-MAIL_PORT=587
-MAIL_USE_TLS=1
-MAIL_USERNAME='swapnilghule2015'
-MAIL_PASSWORD='Ramboea@123'
+FLASK_APP=microblog.py
+SECRET_KEY='hdfjkdhsjfhjk89238929'
+MAIL_SERVER=localhost
+MAIL_PORT=25
+MS_TRANSLATOR_KEY='could not get one'
+ELASTICSEARCH_URL=http://localhost:9200
