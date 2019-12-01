@@ -104,3 +104,4 @@ Traceback (most recent call last):
   File "d:\projects\microblog\myenv\lib\site-packages\elasticsearch\connection\base.py", line 181, in _raise_error
     raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
 elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
+2019-12-01 14:07:41,524 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:77]
