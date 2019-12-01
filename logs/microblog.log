@@ -1,42 +1,46 @@
-2019-11-29 16:24:10,482 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:43]
-2019-11-29 16:25:03,514 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:43]
-2019-11-29 16:25:29,315 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:43]
-2019-11-29 17:04:53,736 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:43]
-2019-11-29 17:17:36,854 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:43]
-2019-11-29 17:21:05,210 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:43]
-2019-11-29 17:22:35,413 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:43]
-2019-11-29 22:53:52,185 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:43]
-2019-11-29 22:57:05,480 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:43]
-2019-11-29 22:58:37,534 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:43]
-2019-11-29 23:34:51,696 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:43]
-2019-11-29 23:44:34,822 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:43]
-2019-11-29 23:49:04,740 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:43]
-2019-11-29 23:50:08,837 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:43]
-2019-11-30 00:30:08,795 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:45]
-2019-11-30 00:33:25,358 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:45]
-2019-11-30 00:37:08,525 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:45]
-2019-11-30 01:10:45,612 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:45]
-2019-11-30 01:57:13,896 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:45]
-2019-11-30 02:26:39,621 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:45]
-2019-11-30 03:05:06,542 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:47]
-2019-11-30 03:25:55,985 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:47]
-2019-11-30 03:59:08,787 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:49]
-2019-11-30 13:19:07,390 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:52]
-2019-11-30 14:19:18,419 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:52]
-2019-11-30 14:19:37,975 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:52]
-2019-11-30 14:20:06,409 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:52]
-2019-11-30 14:33:00,545 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:52]
-2019-11-30 14:33:14,546 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:52]
-2019-11-30 16:03:10,132 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:52]
-2019-11-30 16:03:55,045 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:52]
-2019-11-30 16:04:05,156 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:52]
-2019-11-30 19:55:12,039 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:74]
-2019-11-30 20:01:19,781 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:74]
-2019-11-30 20:12:51,587 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:74]
-2019-11-30 20:49:36,746 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:77]
-2019-11-30 23:25:40,475 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:77]
-2019-12-01 00:10:22,080 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:77]
-2019-12-01 00:10:32,347 ERROR: Exception on /search [GET] [in d:\projects\microblog\myenv\lib\site-packages\flask\app.py:1890]
+2019-12-01 13:54:33,434 ERROR: Exception on /search [GET] [in d:\projects\microblog\myenv\lib\site-packages\flask\app.py:1890]
+Traceback (most recent call last):
+  File "d:\projects\microblog\myenv\lib\site-packages\urllib3\connection.py", line 156, in _new_conn
+    conn = connection.create_connection(
+  File "d:\projects\microblog\myenv\lib\site-packages\urllib3\util\connection.py", line 84, in create_connection
+    raise err
+  File "d:\projects\microblog\myenv\lib\site-packages\urllib3\util\connection.py", line 74, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "d:\projects\microblog\myenv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 237, in perform_request
+    response = self.pool.urlopen(
+  File "d:\projects\microblog\myenv\lib\site-packages\urllib3\connectionpool.py", line 719, in urlopen
+    retries = retries.increment(
+  File "d:\projects\microblog\myenv\lib\site-packages\urllib3\util\retry.py", line 376, in increment
+    raise six.reraise(type(error), error, _stacktrace)
+  File "d:\projects\microblog\myenv\lib\site-packages\urllib3\packages\six.py", line 735, in reraise
+    raise value
+  File "d:\projects\microblog\myenv\lib\site-packages\urllib3\connectionpool.py", line 665, in urlopen
+    httplib_response = self._make_request(
+  File "d:\projects\microblog\myenv\lib\site-packages\urllib3\connectionpool.py", line 387, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "C:\Users\swapn\AppData\Local\Programs\Python\Python38\lib\http\client.py", line 1230, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "C:\Users\swapn\AppData\Local\Programs\Python\Python38\lib\http\client.py", line 1276, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "C:\Users\swapn\AppData\Local\Programs\Python\Python38\lib\http\client.py", line 1225, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "C:\Users\swapn\AppData\Local\Programs\Python\Python38\lib\http\client.py", line 1004, in _send_output
+    self.send(msg)
+  File "C:\Users\swapn\AppData\Local\Programs\Python\Python38\lib\http\client.py", line 944, in send
+    self.connect()
+  File "d:\projects\microblog\myenv\lib\site-packages\urllib3\connection.py", line 184, in connect
+    conn = self._new_conn()
+  File "d:\projects\microblog\myenv\lib\site-packages\urllib3\connection.py", line 168, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000023A2D93CA60>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
 Traceback (most recent call last):
   File "d:\projects\microblog\myenv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -52,11 +56,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "d:\projects\microblog\myenv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\projects\microblog\app\main\routes.py", line 141, in search
+  File "D:\projects\microblog\app\main\routes.py", line 143, in search
     posts, total = Post.search(g.search_form.q.data, page,
   File "D:\projects\microblog\app\models.py", line 15, in search
     ids, total = query_index(cls.__tablename__, expression, page, per_page)
-  File "D:\projects\microblog\app\search.py", line 19, in query_index
+  File "D:\projects\microblog\app\search.py", line 22, in query_index
     search = current_app.elasticsearch.search(
   File "d:\projects\microblog\myenv\lib\site-packages\elasticsearch\client\utils.py", line 84, in _wrapped
     return func(*args, params=params, **kwargs)
@@ -64,12 +68,10 @@ Traceback (most recent call last):
     return self.transport.perform_request(
   File "d:\projects\microblog\myenv\lib\site-packages\elasticsearch\transport.py", line 351, in perform_request
     status, headers_response, data = connection.perform_request(
-  File "d:\projects\microblog\myenv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 257, in perform_request
-    self._raise_error(response.status, raw_data)
-  File "d:\projects\microblog\myenv\lib\site-packages\elasticsearch\connection\base.py", line 181, in _raise_error
-    raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
-elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
-2019-12-01 00:10:54,561 ERROR: Exception on /search [GET] [in d:\projects\microblog\myenv\lib\site-packages\flask\app.py:1890]
+  File "d:\projects\microblog\myenv\lib\site-packages\elasticsearch\connection\http_urllib3.py", line 250, in perform_request
+    raise ConnectionError("N/A", str(e), e)
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x0000023A2D93CA60>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x0000023A2D93CA60>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it)
+2019-12-01 13:56:41,285 ERROR: Exception on /search [GET] [in d:\projects\microblog\myenv\lib\site-packages\flask\app.py:1890]
 Traceback (most recent call last):
   File "d:\projects\microblog\myenv\lib\site-packages\flask\app.py", line 2446, in wsgi_app
     response = self.full_dispatch_request()
@@ -85,11 +87,11 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "d:\projects\microblog\myenv\lib\site-packages\flask_login\utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "D:\projects\microblog\app\main\routes.py", line 141, in search
+  File "D:\projects\microblog\app\main\routes.py", line 143, in search
     posts, total = Post.search(g.search_form.q.data, page,
   File "D:\projects\microblog\app\models.py", line 15, in search
     ids, total = query_index(cls.__tablename__, expression, page, per_page)
-  File "D:\projects\microblog\app\search.py", line 19, in query_index
+  File "D:\projects\microblog\app\search.py", line 22, in query_index
     search = current_app.elasticsearch.search(
   File "d:\projects\microblog\myenv\lib\site-packages\elasticsearch\client\utils.py", line 84, in _wrapped
     return func(*args, params=params, **kwargs)

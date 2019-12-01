@@ -9,8 +9,8 @@ from flask_mail import Mail
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_babel import Babel, lazy_gettext as _l
-from config import Config
 from elasticsearch import Elasticsearch
+from config import Config
 
 db = SQLAlchemy()
 migrate = Migrate()
