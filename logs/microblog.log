@@ -105,3 +105,10 @@ Traceback (most recent call last):
     raise HTTP_EXCEPTIONS.get(status_code, TransportError)(
 elasticsearch.exceptions.NotFoundError: NotFoundError(404, 'index_not_found_exception', 'no such index [post]', post, index_or_alias)
 2019-12-01 14:07:41,524 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:77]
+2019-12-02 09:57:52,256 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:77]
+2019-12-02 15:52:06,143 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:77]
+2019-12-02 15:52:18,236 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:77]
+2019-12-02 16:07:36,313 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:77]
+2019-12-02 16:23:26,136 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:77]
+2019-12-02 16:23:40,225 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:77]
+2019-12-02 16:26:15,345 INFO: Microblog startup [in D:\projects\microblog\app\__init__.py:77]
