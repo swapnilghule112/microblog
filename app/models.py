@@ -6,10 +6,10 @@ from flask import current_app
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
-from app import db, login
-from app.search import add_to_index, remove_from_index, query_index
 import redis
 import rq
+from app import db, login
+from app.search import add_to_index, remove_from_index, query_index
 
 
 class SearchableMixin(object):
@@ -75,10 +75,15 @@ class User(UserMixin, db.Model):
         primaryjoin=(followers.c.follower_id == id),
         secondaryjoin=(followers.c.followed_id == id),
         backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
-    messages_sent = db.relationship('Message',foreign_keys='Message.sender_id',backref='author', lazy='dynamic')
-    messages_received = db.relationship('Message',foreign_keys='Message.recipient_id',backref='recipient', lazy='dynamic')
+    messages_sent = db.relationship('Message',
+                                    foreign_keys='Message.sender_id',
+                                    backref='author', lazy='dynamic')
+    messages_received = db.relationship('Message',
+                                        foreign_keys='Message.recipient_id',
+                                        backref='recipient', lazy='dynamic')
     last_message_read_time = db.Column(db.DateTime)
-    notifications = db.relationship('Notification', backref='user',lazy='dynamic')
+    notifications = db.relationship('Notification', backref='user',
+                                    lazy='dynamic')
     tasks = db.relationship('Task', backref='user', lazy='dynamic')
 
     def __repr__(self):
@@ -140,6 +145,21 @@ class User(UserMixin, db.Model):
         db.session.add(n)
         return n
 
+    def launch_task(self, name, description, *args, **kwargs):
+        rq_job = current_app.task_queue.enqueue('app.tasks.' + name, self.id,
+                                                *args, **kwargs)
+        task = Task(id=rq_job.get_id(), name=name, description=description,
+                    user=self)
+        db.session.add(task)
+        return task
+
+    def get_tasks_in_progress(self):
+        return Task.query.filter_by(user=self, complete=False).all()
+
+    def get_task_in_progress(self, name):
+        return Task.query.filter_by(name=name, user=self,
+                                    complete=False).first()
+
 
 @login.user_loader
 def load_user(id):
@@ -178,6 +198,7 @@ class Notification(db.Model):
 
     def get_data(self):
         return json.loads(str(self.payload_json))
+
 
 class Task(db.Model):
     id = db.Column(db.String(36), primary_key=True)

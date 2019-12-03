@@ -1,4 +1,4 @@
-2019-12-02 18:30:02,050 ERROR: Exception on /search [GET] [in /home/swapnil/projects/microblog/myenv/lib/python3.6/site-packages/flask/app.py:1891]
+2019-12-03 14:06:03,368 ERROR: Exception on /index [POST] [in /home/swapnil/projects/microblog/myenv/lib/python3.6/site-packages/flask/app.py:1891]
 Traceback (most recent call last):
   File "/home/swapnil/projects/microblog/myenv/lib/python3.6/site-packages/urllib3/connection.py", line 157, in _new_conn
     (self._dns_host, self.port), self.timeout, **extra_kw
@@ -37,7 +37,7 @@ Traceback (most recent call last):
     conn = self._new_conn()
   File "/home/swapnil/projects/microblog/myenv/lib/python3.6/site-packages/urllib3/connection.py", line 169, in _new_conn
     self, "Failed to establish a new connection: %s" % e
-urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f3ffc215e80>: Failed to establish a new connection: [Errno 111] Connection refused
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x7f3592aff080>: Failed to establish a new connection: [Errno 111] Connection refused
 
 During handling of the above exception, another exception occurred:
 
@@ -56,21 +56,31 @@ Traceback (most recent call last):
     return self.view_functions[rule.endpoint](**req.view_args)
   File "/home/swapnil/projects/microblog/myenv/lib/python3.6/site-packages/flask_login/utils.py", line 261, in decorated_view
     return func(*args, **kwargs)
-  File "/home/swapnil/projects/microblog/app/main/routes.py", line 151, in search
-    current_app.config['POSTS_PER_PAGE'])
-  File "/home/swapnil/projects/microblog/app/models.py", line 16, in search
-    ids, total = query_index(cls.__tablename__, expression, page, per_page)
-  File "/home/swapnil/projects/microblog/app/search.py", line 25, in query_index
-    'from': (page - 1) * per_page, 'size': per_page})
+  File "/home/swapnil/projects/microblog/app/main/routes.py", line 35, in index
+    db.session.commit()
+  File "/home/swapnil/projects/microblog/myenv/lib/python3.6/site-packages/sqlalchemy/orm/scoping.py", line 162, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/home/swapnil/projects/microblog/myenv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 1027, in commit
+    self.transaction.commit()
+  File "/home/swapnil/projects/microblog/myenv/lib/python3.6/site-packages/sqlalchemy/orm/session.py", line 501, in commit
+    self.session.dispatch.after_commit(self.session)
+  File "/home/swapnil/projects/microblog/myenv/lib/python3.6/site-packages/sqlalchemy/event/attr.py", line 261, in __call__
+    fn(*args, **kw)
+  File "/home/swapnil/projects/microblog/app/models.py", line 39, in after_commit
+    add_to_index(obj.__tablename__, obj)
+  File "/home/swapnil/projects/microblog/app/search.py", line 10, in add_to_index
+    current_app.elasticsearch.index(index=index, id=model.id, body=payload)
   File "/home/swapnil/projects/microblog/myenv/lib/python3.6/site-packages/elasticsearch/client/utils.py", line 84, in _wrapped
     return func(*args, params=params, **kwargs)
-  File "/home/swapnil/projects/microblog/myenv/lib/python3.6/site-packages/elasticsearch/client/__init__.py", line 811, in search
-    "GET", _make_path(index, "_search"), params=params, body=body
+  File "/home/swapnil/projects/microblog/myenv/lib/python3.6/site-packages/elasticsearch/client/__init__.py", line 370, in index
+    "POST", _make_path(index, doc_type, id), params=params, body=body
   File "/home/swapnil/projects/microblog/myenv/lib/python3.6/site-packages/elasticsearch/transport.py", line 358, in perform_request
     timeout=timeout,
   File "/home/swapnil/projects/microblog/myenv/lib/python3.6/site-packages/elasticsearch/connection/http_urllib3.py", line 250, in perform_request
     raise ConnectionError("N/A", str(e), e)
-elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x7f3ffc215e80>: Failed to establish a new connection: [Errno 111] Connection refused) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7f3ffc215e80>: Failed to establish a new connection: [Errno 111] Connection refused)
-2019-12-02 23:23:56,640 INFO: Microblog startup [in /home/swapnil/projects/microblog/app/__init__.py:77]
-2019-12-02 23:24:04,993 INFO: Microblog startup [in /home/swapnil/projects/microblog/app/__init__.py:77]
-2019-12-02 23:26:21,239 INFO: Microblog startup [in /home/swapnil/projects/microblog/app/__init__.py:77]
+elasticsearch.exceptions.ConnectionError: ConnectionError(<urllib3.connection.HTTPConnection object at 0x7f3592aff080>: Failed to establish a new connection: [Errno 111] Connection refused) caused by: NewConnectionError(<urllib3.connection.HTTPConnection object at 0x7f3592aff080>: Failed to establish a new connection: [Errno 111] Connection refused)
+2019-12-03 14:06:26,737 INFO: Microblog startup [in ./app/__init__.py:81]
+2019-12-03 14:08:32,885 INFO: Microblog startup [in /home/swapnil/projects/microblog/app/__init__.py:81]
+2019-12-03 14:08:40,728 INFO: Microblog startup [in /home/swapnil/projects/microblog/app/__init__.py:81]
+2019-12-03 14:08:46,216 INFO: Microblog startup [in /home/swapnil/projects/microblog/app/__init__.py:81]
+2019-12-03 14:54:59,567 INFO: Microblog startup [in /home/swapnil/projects/microblog/app/__init__.py:86]
